@@ -219,8 +219,11 @@
     nav .btn-primary { padding: 8px 16px !important; font-size: 14px; }
     body { overflow-x: hidden; }
     .hero-grid { grid-template-columns: 1fr; }
-    .hero-photo { display: none; }
-    .hero-text { padding: 64px 0 !important; }
+    .hero-text { padding: 64px 0 40px !important; }
+    .hero-photo { padding-bottom: 40px; }
+    .hero-photo::before { bottom: 70px; width: min(250px, 72%); }
+    .hero-photo::after { bottom: 34px; width: min(280px, 80%); }
+    .hero-photo img { height: min(340px, 78vw); }
     .strip-grid { grid-template-columns: 1fr; gap: 18px; }
     .diagnostic-grid { grid-template-columns: 1fr; gap: 32px; }
     .apropos-grid {
