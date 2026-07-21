@@ -128,12 +128,14 @@
     gap: 48px;
     align-items: start;
   }
-  .tp-grid {
-    display: grid;
-    grid-template-columns: 1.4fr 1fr;
-    gap: 56px;
-    align-items: start;
+  .tp-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 40px;
+    flex-wrap: wrap;
   }
+  .tp-price { text-align: right; }
   .paliers-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -177,7 +179,7 @@
     .apropos-grid > div:first-child { width: 100%; height: 320px; }
     .strip-grid { grid-template-columns: 1fr; }
     .diagnostic-grid { grid-template-columns: 1fr; }
-    .tp-grid { grid-template-columns: 1fr; }
+    .tp-price { text-align: left; }
   }
 </style>
 </head>
@@ -356,46 +358,44 @@
       <span class="step-label">Pour durer · l&rsquo;offre phare</span>
       <span class="step-count" style="color: #6E7276;">· 3/3</span>
     </div>
-    <div class="tp-grid">
-      <div>
-        <h2 style="margin: 0 0 24px; font-weight: 800; font-size: clamp(32px, 4vw, 52px); letter-spacing: -0.02em; color: #FBFAF8; max-width: 18ch; text-wrap: balance;">Un responsable IA, <span class="mark">un jour par semaine</span></h2>
-        <p style="margin: 0 0 20px; font-size: 17px; line-height: 1.65; color: #C9CBCC; max-width: 58ch; text-wrap: pretty;">Comme un DAF ou un DSI à temps partagé&nbsp;: je prends le rôle de responsable IA de votre PME, un jour par semaine, dans vos locaux.</p>
-        <p style="margin: 0 0 20px; font-size: 17px; line-height: 1.65; color: #C9CBCC; max-width: 58ch; text-wrap: pretty;">La différence avec une mission ponctuelle&nbsp;? La présence. Je connais vos équipes, vos dossiers en cours, votre stratégie et votre rythme. Les outils se déploient là où ils servent vraiment, l&rsquo;adoption se fait dans la durée, et vous avez un interlocuteur unique qui arbitre&nbsp;: quoi automatiser, quoi former, quoi laisser tomber.</p>
-        <p style="margin: 0; font-size: 17px; line-height: 1.65; color: #C9CBCC; max-width: 58ch; text-wrap: pretty;">Vos équipes deviennent autonomes sur les outils. La stratégie, la veille et les nouveaux chantiers, c&rsquo;est mon rôle, chaque semaine.</p>
-        <div style="margin-top: 36px; max-width: 420px;">
-          <div style="display: flex; gap: 6px; margin-bottom: 10px;">
-            <span style="height: 10px; flex: 1; border-radius: 999px; background: #6E7276;"></span>
-            <span style="height: 10px; flex: 1; border-radius: 999px; background: var(--accent);"></span>
-            <span style="height: 10px; flex: 1; border-radius: 999px; background: var(--accent);"></span>
-          </div>
-          <p style="margin: 0; font-size: 14px; color: #C9CBCC;"><strong style="color: #FBFAF8;">3 entreprises maximum</strong> · 1 place prise, <strong style="color: var(--accent);">2 disponibles</strong></p>
-        </div>
+
+    <div class="tp-header" style="margin-bottom: 40px;">
+      <h2 style="margin: 0; font-weight: 800; font-size: clamp(32px, 4vw, 52px); letter-spacing: -0.02em; color: #FBFAF8; max-width: 18ch; text-wrap: balance;">Un responsable IA, <span class="mark">un jour par semaine</span></h2>
+      <div class="tp-price">
+        <p style="margin: 0 0 8px; font-weight: 900; font-size: clamp(32px, 4vw, 48px); letter-spacing: -0.02em; color: #FBFAF8;">3 000&nbsp;€ <span style="font-size: 17px; font-weight: 500; color: #9B9E9F;">HT / mois</span></p>
+        <p style="margin: 0; font-size: 14px; line-height: 1.6; color: #9B9E9F;">45 jours de présence par an, congés et fériés déduits,<br>lissés en 12 mensualités · soit 800&nbsp;€ HT le jour · engagement 6 mois</p>
       </div>
-      <div style="display: flex; flex-direction: column; gap: 20px;">
-        <div style="border: 2px solid var(--accent); border-radius: 20px; padding: 36px 32px; background: #333638; display: flex; flex-direction: column; gap: 16px;">
-          <p style="margin: 0; font-weight: 600; font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: #9B9E9F;">Responsable IA à temps partagé</p>
-          <p style="margin: 0; font-weight: 900; font-size: 44px; letter-spacing: -0.02em; color: #FBFAF8;">3 000&nbsp;€ <span style="font-size: 17px; font-weight: 500; color: #9B9E9F;">HT / mois</span></p>
-          <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 8px;">
-            <li style="font-size: 15px; color: #FBFAF8; display: flex; gap: 10px; align-items: baseline;"><span style="color: var(--accent); font-weight: 800;">+</span>1 jour par semaine dans vos locaux</li>
-            <li style="font-size: 15px; color: #FBFAF8; display: flex; gap: 10px; align-items: baseline;"><span style="color: var(--accent); font-weight: 800;">+</span>45 jours de présence par an, congés et fériés déduits, lissés en 12 mensualités</li>
-            <li style="font-size: 15px; color: #FBFAF8; display: flex; gap: 10px; align-items: baseline;"><span style="color: var(--accent); font-weight: 800;">+</span>Soit 800&nbsp;€ HT le jour de présence</li>
-            <li style="font-size: 15px; color: #FBFAF8; display: flex; gap: 10px; align-items: baseline;"><span style="color: var(--accent); font-weight: 800;">+</span>Stratégie, déploiement, veille, arbitrages</li>
-            <li style="font-size: 15px; color: #FBFAF8; display: flex; gap: 10px; align-items: baseline;"><span style="color: var(--accent); font-weight: 800;">+</span>Engagement 6 mois</li>
-          </ul>
-          <a class="btn-primary" href="#contact" style="background: var(--btn-bg); color: var(--btn-fg); border: 2px solid var(--accent); padding: 14px 28px; border-radius: 999px; font-weight: 600; font-size: 16px; text-align: center; transition: transform 0.15s; margin-top: 6px;">Discuter d&rsquo;une place</a>
+    </div>
+
+    <div style="max-width: 62ch; display: flex; flex-direction: column; gap: 20px;">
+      <p style="margin: 0; font-size: 17px; line-height: 1.65; color: #C9CBCC; text-wrap: pretty;">Comme un DAF ou un DSI à temps partagé&nbsp;: je prends le rôle de responsable IA de votre PME, un jour par semaine, dans vos locaux.</p>
+      <p style="margin: 0; font-size: 17px; line-height: 1.65; color: #C9CBCC; text-wrap: pretty;">La différence avec une mission ponctuelle&nbsp;? La présence. Je connais vos équipes, vos dossiers en cours, votre stratégie et votre rythme. Les outils se déploient là où ils servent vraiment, l&rsquo;adoption se fait dans la durée, et vous avez un interlocuteur unique qui arbitre&nbsp;: quoi automatiser, quoi former, quoi laisser tomber.</p>
+      <p style="margin: 0; font-size: 17px; line-height: 1.65; color: #C9CBCC; text-wrap: pretty;">Vos équipes deviennent autonomes sur les outils. La stratégie, la veille et les nouveaux chantiers, c&rsquo;est mon rôle, chaque semaine.</p>
+    </div>
+
+    <div style="margin-top: 40px; display: flex; align-items: center; gap: 40px; flex-wrap: wrap;">
+      <div style="flex: 1; min-width: 260px; max-width: 420px;">
+        <div style="display: flex; gap: 6px; margin-bottom: 10px;">
+          <span style="height: 10px; flex: 1; border-radius: 999px; background: #6E7276;"></span>
+          <span style="height: 10px; flex: 1; border-radius: 999px; background: var(--accent);"></span>
+          <span style="height: 10px; flex: 1; border-radius: 999px; background: var(--accent);"></span>
         </div>
-        <div>
-          <p style="margin: 0 0 12px; font-size: 14px; line-height: 1.5; color: #9B9E9F;">Pas besoin d&rsquo;un jour par semaine&nbsp;? Deux formules plus légères, <strong style="color: #C9CBCC;">en alternative</strong> au temps partagé&nbsp;:</p>
-          <div class="paliers-grid">
-            <div style="border: 1px solid #45484A; border-radius: 16px; padding: 22px 24px;">
-              <p style="margin: 0 0 6px; font-weight: 800; font-size: 16px; color: #FBFAF8;">Suivi <span style="font-weight: 500; color: #9B9E9F;">· 500&nbsp;€ HT / mois</span></p>
-              <p style="margin: 0; font-size: 14px; line-height: 1.5; color: #C9CBCC;">Point mensuel avec la direction + support à distance entre les sessions.</p>
-            </div>
-            <div style="border: 1px solid #45484A; border-radius: 16px; padding: 22px 24px;">
-              <p style="margin: 0 0 6px; font-weight: 800; font-size: 16px; color: #FBFAF8;">Pilotage <span style="font-weight: 500; color: #9B9E9F;">· 1 500&nbsp;€ HT / mois</span></p>
-              <p style="margin: 0; font-size: 14px; line-height: 1.5; color: #C9CBCC;">Le contenu du Suivi + une demi-journée sur site chaque mois, au plus près des équipes.</p>
-            </div>
-          </div>
+        <p style="margin: 0; font-size: 14px; color: #C9CBCC;"><strong style="color: #FBFAF8;">3 entreprises maximum</strong> · 1 place prise, <strong style="color: var(--accent);">2 disponibles</strong></p>
+      </div>
+      <a class="btn-primary" href="#contact" style="background: var(--btn-bg); color: var(--btn-fg); border: 2px solid var(--accent); padding: 14px 28px; border-radius: 999px; font-weight: 600; font-size: 16px; text-align: center; transition: transform 0.15s;">Discuter d&rsquo;une place</a>
+    </div>
+
+    <div style="margin-top: 72px; border-top: 1px solid #45484A; padding-top: 48px;">
+      <h3 style="margin: 0 0 8px; font-weight: 800; font-size: 22px; letter-spacing: -0.01em; color: #FBFAF8;">Autres fonctionnements possibles</h3>
+      <p style="margin: 0 0 24px; font-size: 15px; line-height: 1.5; color: #9B9E9F;">Pas besoin d&rsquo;un jour par semaine&nbsp;? Deux formules plus légères, <strong style="color: #C9CBCC;">en alternative</strong> au temps partagé&nbsp;:</p>
+      <div class="paliers-grid">
+        <div style="border: 1px solid #45484A; border-radius: 16px; padding: 22px 24px;">
+          <p style="margin: 0 0 6px; font-weight: 800; font-size: 16px; color: #FBFAF8;">Suivi <span style="font-weight: 500; color: #9B9E9F;">· 500&nbsp;€ HT / mois</span></p>
+          <p style="margin: 0; font-size: 14px; line-height: 1.5; color: #C9CBCC;">Point mensuel avec la direction + support à distance entre les sessions.</p>
+        </div>
+        <div style="border: 1px solid #45484A; border-radius: 16px; padding: 22px 24px;">
+          <p style="margin: 0 0 6px; font-weight: 800; font-size: 16px; color: #FBFAF8;">Pilotage <span style="font-weight: 500; color: #9B9E9F;">· 1 500&nbsp;€ HT / mois</span></p>
+          <p style="margin: 0; font-size: 14px; line-height: 1.5; color: #C9CBCC;">Le contenu du Suivi + une demi-journée sur site chaque mois, au plus près des équipes.</p>
         </div>
       </div>
     </div>
