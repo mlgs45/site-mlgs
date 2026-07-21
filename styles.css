@@ -335,6 +335,15 @@ a:hover { color: #C93D1D; }
 #exemples { max-width: 1140px; margin: 0 auto; padding: 100px 32px 40px; }
 #exemples .h2 { max-width: 22ch; }
 #exemples .section-intro { margin-bottom: 48px; }
+.exemples-note {
+  margin: 44px 0 0;
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--text);
+  max-width: 62ch;
+  text-wrap: pretty;
+}
+.exemples-note strong { color: var(--ink); }
 .exemples-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
