@@ -13,6 +13,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;800;900&family=Baloo+2:wght@700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -23,279 +24,59 @@
   "areaServed": "FR"
 }
 </script>
-<style>
-  :root {
-    --accent: #F5502A;
-    --btn-bg: #F5502A;
-    --btn-fg: #FBFAF8;
-  }
-  * { box-sizing: border-box; }
-  [id] { scroll-margin-top: 80px; }
-  html { scroll-behavior: smooth; }
-  body {
-    margin: 0;
-    background: #FBFAF8;
-    color: #2A2C2E;
-    font-family: 'Archivo', Helvetica, sans-serif;
-    -webkit-font-smoothing: antialiased;
-  }
-  a { color: var(--accent); text-decoration: none; }
-  a:hover { color: #C93D1D; }
-  ::selection { background: var(--accent); color: #fff; }
-
-  .nav-link:hover { color: var(--accent); }
-  .btn-primary:hover { transform: translateY(-2px); }
-  .btn-secondary:hover { border-color: #2A2C2E; }
-  .offre-card:hover { border-color: var(--accent); }
-
-  .eyebrow {
-    margin: 0 0 16px;
-    font-weight: 600;
-    font-size: 13px;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--accent);
-  }
-  .step {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    margin: 0 0 24px;
-  }
-  .step .step-num {
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    background: var(--accent);
-    color: #FBFAF8;
-    font-family: 'Baloo 2', sans-serif;
-    font-weight: 800;
-    font-size: 18px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-  }
-  .step .step-label {
-    font-weight: 600;
-    font-size: 13px;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--accent);
-  }
-  .step .step-count {
-    font-weight: 500;
-    font-size: 13px;
-    letter-spacing: 0.06em;
-    color: #9B9E9F;
-  }
-  .hero-grid {
-    display: grid;
-    grid-template-columns: 1.2fr 0.8fr;
-    gap: 24px;
-    align-items: end;
-  }
-  .hero-photo {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-    padding-bottom: 96px;
-  }
-  .hero-photo::before {
-    content: "";
-    position: absolute;
-    bottom: 130px;
-    width: min(330px, 88%);
-    aspect-ratio: 1;
-    border-radius: 50%;
-    background: var(--accent);
-  }
-  .hero-photo::after {
-    content: "";
-    position: absolute;
-    bottom: 90px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: min(360px, 94%);
-    height: 6px;
-    border-radius: 999px;
-    background: var(--accent);
-  }
-  .hero-photo img {
-    position: relative;
-    height: clamp(360px, 38vw, 480px);
-    width: auto;
-    filter: drop-shadow(0 16px 32px rgba(42,44,46,0.2));
-  }
-  .mark {
-    background-image: linear-gradient(0deg, rgba(245,80,42,0.32), rgba(245,80,42,0.32));
-    background-repeat: no-repeat;
-    background-size: 100% 0.3em;
-    background-position: 0 88%;
-    -webkit-box-decoration-break: clone;
-    box-decoration-break: clone;
-  }
-  .offres-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
-    gap: 24px;
-  }
-  .exemples-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
-    gap: 20px;
-  }
-  .etapes-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(230px, 100%), 1fr));
-    gap: 40px;
-  }
-  .apropos-grid {
-    display: grid;
-    grid-template-columns: 320px 1fr;
-    gap: 72px;
-    align-items: center;
-  }
-  .strip-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 32px;
-  }
-  .diagnostic-grid {
-    display: grid;
-    grid-template-columns: 1.4fr 1fr;
-    gap: 48px;
-    align-items: start;
-  }
-  .tp-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 40px;
-    flex-wrap: wrap;
-  }
-  .tp-price { text-align: right; }
-  .paliers-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr));
-    gap: 20px;
-  }
-  .faq-item {
-    border-bottom: 1px solid #ECE9E4;
-    padding: 6px 0;
-  }
-  .faq-item summary {
-    cursor: pointer;
-    font-weight: 600;
-    font-size: 17px;
-    padding: 16px 0;
-    list-style: none;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 16px;
-  }
-  .faq-item summary::-webkit-details-marker { display: none; }
-  .faq-item summary::after {
-    content: "+";
-    color: var(--accent);
-    font-weight: 800;
-    font-size: 20px;
-    flex-shrink: 0;
-  }
-  .faq-item[open] summary::after { content: "–"; }
-  .faq-item p {
-    margin: 0 0 18px;
-    font-size: 16px;
-    line-height: 1.65;
-    color: #55585B;
-    max-width: 65ch;
-  }
-
-  @media (max-width: 720px) {
-    nav .nav-link { display: none; }
-    nav > div { padding: 12px 20px !important; }
-    nav a[href="#haut"] > span:last-child { display: none; }
-    nav .btn-primary { padding: 8px 16px !important; font-size: 14px; }
-    body { overflow-x: hidden; }
-    .hero-grid { grid-template-columns: 1fr; }
-    .hero-text { padding: 64px 0 40px !important; }
-    .hero-photo { padding-bottom: 40px; }
-    .hero-photo::before { bottom: 70px; width: min(250px, 72%); }
-    .hero-photo::after { bottom: 34px; width: min(280px, 80%); }
-    .hero-photo img { height: min(340px, 78vw); }
-    .strip-grid { grid-template-columns: 1fr; gap: 18px; }
-    .diagnostic-grid { grid-template-columns: 1fr; gap: 32px; }
-    .apropos-grid {
-      grid-template-columns: 1fr;
-      gap: 40px;
-      padding-top: 64px !important;
-      padding-bottom: 64px !important;
-    }
-    .apropos-grid > div:first-child { width: 100%; height: 320px; }
-    .tp-price { text-align: left; max-width: none !important; }
-    .etapes-grid { gap: 28px; }
-    #diagnostic, #exemples, #methode, #faq { padding-top: 64px !important; }
-    #temps-partage { margin-top: 48px !important; }
-    #diagnostic, #methode { padding-bottom: 64px !important; }
-    #temps-partage > div { padding-top: 64px !important; padding-bottom: 64px !important; }
-    #contact { padding-bottom: 64px !important; }
-  }
-</style>
 </head>
 <body>
 
 <!-- NAV -->
-<nav style="position: sticky; top: 0; z-index: 50; background: rgba(251,250,248,0.85); backdrop-filter: blur(12px); border-bottom: 1px solid #ECE9E4;">
-  <div style="max-width: 1140px; margin: 0 auto; padding: 14px 32px; display: flex; align-items: center; justify-content: space-between; gap: 24px;">
-    <a href="#haut" style="display: flex; align-items: center; gap: 12px;">
-      <span style="background: var(--accent); color: #FBFAF8; font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 22px; line-height: 1; padding: 8px 12px 10px; border-radius: 12px; letter-spacing: -0.5px;">mlgs</span>
-      <span style="font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 15px; line-height: 1.05; letter-spacing: -0.2px;">
-        <span style="display: block; color: #6E7276;">mathieu</span>
-        <span style="display: block; color: var(--accent);">langlois</span>
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a class="logo" href="#haut">
+      <span class="logo-badge">mlgs</span>
+      <span class="logo-name">
+        <span class="l1">mathieu</span>
+        <span class="l2">langlois</span>
       </span>
     </a>
-    <div class="nav-links" style="display: flex; align-items: center; gap: 28px; font-size: 15px; font-weight: 500;">
-      <a class="nav-link" href="#diagnostic" style="color: #2A2C2E;">Diagnostic</a>
-      <a class="nav-link" href="#offres" style="color: #2A2C2E;">Offres</a>
-      <a class="nav-link" href="#temps-partage" style="color: #2A2C2E;">Temps partagé</a>
-      <a class="nav-link" href="#methode" style="color: #2A2C2E;">Méthode</a>
-      <a class="nav-link" href="#apropos" style="color: #2A2C2E;">À propos</a>
-      <a class="btn-primary" href="#contact" style="background: var(--btn-bg); color: var(--btn-fg); border: 2px solid var(--accent); padding: 9px 20px; border-radius: 999px; font-weight: 600; transition: transform 0.15s;">Réserver un appel</a>
+    <div class="nav-links">
+      <a class="nav-link" href="#diagnostic">Diagnostic</a>
+      <a class="nav-link" href="#offres">Offres</a>
+      <a class="nav-link" href="#temps-partage">Temps partagé</a>
+      <a class="nav-link" href="#methode">Méthode</a>
+      <a class="nav-link" href="#apropos">À propos</a>
+      <a class="btn-primary btn-nav" href="#contact">Réserver un appel</a>
     </div>
   </div>
 </nav>
 
 <!-- HERO -->
-<header id="haut" style="max-width: 1140px; margin: 0 auto; padding: 0 32px;">
+<header id="haut">
   <div class="hero-grid">
-  <div class="hero-text" style="padding: 110px 0 90px;">
-  <p style="margin: 0 0 24px; font-weight: 600; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: #6E7276;">Formateur &amp; builder IA</p>
-  <h1 style="margin: 0 0 28px; font-weight: 900; font-size: clamp(44px, 6.5vw, 84px); line-height: 1.02; letter-spacing: -0.03em; color: #2A2C2E; max-width: 15ch; text-wrap: balance;">Mettez l&rsquo;IA au travail. <span style="color: var(--accent);">Vraiment.</span></h1>
-  <p style="margin: 0 0 40px; font-size: 20px; line-height: 1.55; color: #55585B; max-width: 56ch; text-wrap: pretty;">Je forme vos équipes, je construis vos outils et je pilote le déploiement de l&rsquo;IA dans votre PME, chaque semaine, sur de vrais dossiers. Sans jargon, sans slides creux.</p>
-  <div style="display: flex; gap: 16px; flex-wrap: wrap; align-items: center;">
-    <a class="btn-primary" href="#contact" style="background: var(--btn-bg); color: var(--btn-fg); border: 2px solid var(--accent); padding: 16px 32px; border-radius: 999px; font-weight: 600; font-size: 17px; transition: transform 0.15s;">Réserver 30 minutes</a>
-    <a class="btn-secondary" href="#diagnostic" style="color: #2A2C2E; padding: 16px 28px; border: 2px solid #DDD9D2; border-radius: 999px; font-weight: 600; font-size: 17px; transition: border-color 0.15s;">Commencer par un diagnostic</a>
-  </div>
-  </div>
-  <div class="hero-photo">
-    <img src="assets/portrait-cutout.png" alt="Mathieu Langlois, formateur et builder IA" width="679" height="1100">
-  </div>
+    <div class="hero-text">
+      <p class="hero-kicker">Formateur &amp; builder IA</p>
+      <h1>Mettez l&rsquo;IA au travail. <span class="accent">Vraiment.</span></h1>
+      <p class="hero-sub">Je forme vos équipes, je construis vos outils et je pilote le déploiement de l&rsquo;IA dans votre PME, chaque semaine, sur de vrais dossiers. Sans jargon, sans slides creux.</p>
+      <div class="hero-ctas">
+        <a class="btn-primary btn-lg" href="#contact">Réserver 30 minutes</a>
+        <a class="btn-secondary btn-lg" href="#diagnostic">Commencer par un diagnostic</a>
+      </div>
+    </div>
+    <div class="hero-photo">
+      <img src="assets/portrait-cutout.png" alt="Mathieu Langlois, formateur et builder IA" width="679" height="1100">
+    </div>
   </div>
 </header>
 
 <!-- STRIP -->
-<div style="border-top: 1px solid #ECE9E4; border-bottom: 1px solid #ECE9E4;">
-  <div class="strip-grid" style="max-width: 1140px; margin: 0 auto; padding: 28px 32px;">
-    <p style="margin: 0; font-size: 15px; line-height: 1.5; color: #55585B;"><strong style="color: #2A2C2E;">Vos cas réels.</strong> Formations et outils construits sur vos dossiers, pas sur des exemples génériques.</p>
-    <p style="margin: 0; font-size: 15px; line-height: 1.5; color: #55585B;"><strong style="color: #2A2C2E;">Des semaines, pas des mois.</strong> Un premier résultat utilisable dès le premier sprint.</p>
-    <p style="margin: 0; font-size: 15px; line-height: 1.5; color: #55585B;"><strong style="color: #2A2C2E;">Des résultats mesurés.</strong> Chaque mission commence et finit par une mesure du temps gagné.</p>
+<div class="strip">
+  <div class="strip-grid">
+    <p><strong>Vos cas réels.</strong> Formations et outils construits sur vos dossiers, pas sur des exemples génériques.</p>
+    <p><strong>Des semaines, pas des mois.</strong> Un premier résultat utilisable dès le premier sprint.</p>
+    <p><strong>Des résultats mesurés.</strong> Chaque mission commence et finit par une mesure du temps gagné.</p>
   </div>
 </div>
 
 <!-- DIAGNOSTIC -->
-<section id="diagnostic" style="max-width: 1140px; margin: 0 auto; padding: 100px 32px;">
+<section id="diagnostic">
   <div class="step">
     <span class="step-num">1</span>
     <span class="step-label">Par où commencer</span>
@@ -303,171 +84,171 @@
   </div>
   <div class="diagnostic-grid">
     <div>
-      <h2 style="margin: 0 0 24px; font-weight: 800; font-size: clamp(32px, 4vw, 48px); letter-spacing: -0.02em; color: #2A2C2E; max-width: 20ch;">Diagnostic IA&nbsp;: <span class="mark">4 heures</span> pour savoir où vous en êtes</h2>
-      <p style="margin: 0 0 20px; font-size: 17px; line-height: 1.65; color: #55585B; max-width: 58ch; text-wrap: pretty;">Une demi-journée dans vos locaux ou en visio. On passe en revue vos processus, vos outils et vos irritants, et on identifie où l&rsquo;IA fait réellement gagner du temps, et où elle n&rsquo;apporte rien.</p>
-      <p style="margin: 0; font-size: 17px; line-height: 1.65; color: #55585B; max-width: 58ch; text-wrap: pretty;">Vous repartez avec un livrable concret&nbsp;: la <strong style="color: #2A2C2E;">cartographie de vos cas d&rsquo;usage, priorisés par temps gagné</strong>, et une feuille de route pour les déployer. Restitution sous 5 jours.</p>
+      <h2 class="h2">Diagnostic IA&nbsp;: <span class="mark">4 heures</span> pour savoir où vous en êtes</h2>
+      <p class="txt">Une demi-journée dans vos locaux ou en visio. On passe en revue vos processus, vos outils et vos irritants, et on identifie où l&rsquo;IA fait réellement gagner du temps, et où elle n&rsquo;apporte rien.</p>
+      <p class="txt">Vous repartez avec un livrable concret&nbsp;: la <strong>cartographie de vos cas d&rsquo;usage, priorisés par temps gagné</strong>, et une feuille de route pour les déployer. Restitution sous 5 jours.</p>
     </div>
-    <div style="border: 2px solid var(--accent); border-radius: 20px; padding: 36px 32px; background: #FFFFFF; display: flex; flex-direction: column; gap: 16px;">
-      <p style="margin: 0; font-weight: 600; font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: #6E7276;">Diagnostic IA · 4h</p>
-      <p style="margin: 0; font-weight: 900; font-size: 44px; letter-spacing: -0.02em; color: #2A2C2E;">900&nbsp;€ <span style="font-size: 17px; font-weight: 500; color: #6E7276;">HT</span></p>
-      <p style="margin: 0; font-size: 15px; line-height: 1.55; color: #55585B;"><strong style="color: var(--accent);">Intégralement déduits du devis</strong> si nous travaillons ensemble dans les 3 mois.</p>
-      <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 8px;">
-        <li style="font-size: 15px; color: #2A2C2E; display: flex; gap: 10px; align-items: baseline;"><span style="color: var(--accent); font-weight: 800;">+</span>4 heures, sur site ou en visio</li>
-        <li style="font-size: 15px; color: #2A2C2E; display: flex; gap: 10px; align-items: baseline;"><span style="color: var(--accent); font-weight: 800;">+</span>Cartographie des cas d&rsquo;usage priorisés</li>
-        <li style="font-size: 15px; color: #2A2C2E; display: flex; gap: 10px; align-items: baseline;"><span style="color: var(--accent); font-weight: 800;">+</span>Feuille de route + restitution sous 5 jours</li>
+    <div class="offer-box">
+      <p class="box-kicker">Diagnostic IA · 4h</p>
+      <p class="price">900&nbsp;€ <span>HT</span></p>
+      <p class="deal"><strong>Intégralement déduits du devis</strong> si nous travaillons ensemble dans les 3 mois.</p>
+      <ul class="plist">
+        <li>4 heures, sur site ou en visio</li>
+        <li>Cartographie des cas d&rsquo;usage priorisés</li>
+        <li>Feuille de route + restitution sous 5 jours</li>
       </ul>
-      <a class="btn-primary" href="#contact" style="background: var(--btn-bg); color: var(--btn-fg); border: 2px solid var(--accent); padding: 14px 28px; border-radius: 999px; font-weight: 600; font-size: 16px; text-align: center; transition: transform 0.15s; margin-top: 6px;">Réserver mon diagnostic</a>
+      <a class="btn-primary btn-md card-cta" href="#contact">Réserver mon diagnostic</a>
     </div>
   </div>
 </section>
 
 <!-- OFFRES -->
-<section id="offres" style="max-width: 1140px; margin: 0 auto; padding: 20px 32px 40px;">
+<section id="offres">
   <div class="step">
     <span class="step-num">2</span>
     <span class="step-label">Ensuite, selon votre cas</span>
     <span class="step-count">· 2/3</span>
   </div>
-  <h2 style="margin: 0 0 20px; font-weight: 800; font-size: clamp(32px, 4vw, 48px); letter-spacing: -0.02em; color: #2A2C2E;"><span class="mark">Trois chantiers</span> possibles après le diagnostic</h2>
-  <p style="margin: 0 0 56px; font-size: 17px; line-height: 1.6; color: #55585B; max-width: 60ch; text-wrap: pretty;">Le diagnostic dit lequel commencer. Selon votre cas&nbsp;: former les équipes, construire un outil, ou installer un pilotage dans la durée.</p>
+  <h2 class="h2"><span class="mark">Trois chantiers</span> possibles après le diagnostic</h2>
+  <p class="section-intro">Le diagnostic dit lequel commencer. Selon votre cas&nbsp;: former les équipes, construire un outil, ou installer un pilotage dans la durée.</p>
   <div class="offres-grid">
 
-    <article class="offre-card" style="border: 1px solid #ECE9E4; border-radius: 20px; padding: 36px 32px; background: #FFFFFF; display: flex; flex-direction: column; gap: 18px; transition: border-color 0.15s;">
-      <span style="font-weight: 600; font-size: 13px; color: var(--accent); letter-spacing: 0.1em;">01</span>
-      <h3 style="margin: 0; font-weight: 800; font-size: 24px; letter-spacing: -0.01em; color: #2A2C2E;">Formation IA</h3>
-      <p style="margin: 0; font-size: 16px; line-height: 1.6; color: #55585B; flex: 1; text-wrap: pretty;">Une journée dans vos locaux, sur vos cas d&rsquo;usage. Vos équipes repartent avec des réflexes et des gains de temps immédiats, pas avec des slides.</p>
-      <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 8px;">
-        <li style="font-size: 15px; color: #2A2C2E; display: flex; gap: 10px; align-items: baseline;"><span style="color: var(--accent); font-weight: 800;">+</span>Intra-entreprise, jusqu&rsquo;à 10 personnes</li>
-        <li style="font-size: 15px; color: #2A2C2E; display: flex; gap: 10px; align-items: baseline;"><span style="color: var(--accent); font-weight: 800;">+</span>Ateliers pratiques sur vos dossiers réels</li>
-        <li style="font-size: 15px; color: #2A2C2E; display: flex; gap: 10px; align-items: baseline;"><span style="color: var(--accent); font-weight: 800;">+</span>Support et prompts réutilisables inclus</li>
+    <article class="offre-card">
+      <span class="card-num">01</span>
+      <h3>Formation IA</h3>
+      <p class="desc">Une journée dans vos locaux, sur vos cas d&rsquo;usage. Vos équipes repartent avec des réflexes et des gains de temps immédiats, pas avec des slides.</p>
+      <ul class="plist">
+        <li>Intra-entreprise, jusqu&rsquo;à 10 personnes</li>
+        <li>Ateliers pratiques sur vos dossiers réels</li>
+        <li>Support et prompts réutilisables inclus</li>
       </ul>
-      <p style="margin: 8px 0 0; padding-top: 18px; border-top: 1px solid #ECE9E4; font-size: 15px; color: #6E7276;"><strong style="color: #2A2C2E;">1 800 € HT</strong> la journée, prix fixe</p>
+      <p class="tarif"><strong>1 800 € HT</strong> la journée, prix fixe</p>
     </article>
 
-    <article class="offre-card" style="border: 1px solid #ECE9E4; border-radius: 20px; padding: 36px 32px; background: #FFFFFF; display: flex; flex-direction: column; gap: 18px; transition: border-color 0.15s;">
-      <span style="font-weight: 600; font-size: 13px; color: var(--accent); letter-spacing: 0.1em;">02</span>
-      <h3 style="margin: 0; font-weight: 800; font-size: 24px; letter-spacing: -0.01em; color: #2A2C2E;">Build sur mesure</h3>
-      <p style="margin: 0; font-size: 16px; line-height: 1.6; color: #55585B; flex: 1; text-wrap: pretty;">Prototypes et outils IA branchés sur votre activité&nbsp;: assistant interne, automatisation, traitement de documents. Livré, connecté, utilisé.</p>
-      <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 8px;">
-        <li style="font-size: 15px; color: #2A2C2E; display: flex; gap: 10px; align-items: baseline;"><span style="color: var(--accent); font-weight: 800;">+</span>Prototype fonctionnel en 2 à 4 semaines</li>
-        <li style="font-size: 15px; color: #2A2C2E; display: flex; gap: 10px; align-items: baseline;"><span style="color: var(--accent); font-weight: 800;">+</span>Connecté à vos outils existants</li>
-        <li style="font-size: 15px; color: #2A2C2E; display: flex; gap: 10px; align-items: baseline;"><span style="color: var(--accent); font-weight: 800;">+</span>Transfert complet à vos équipes</li>
+    <article class="offre-card">
+      <span class="card-num">02</span>
+      <h3>Build sur mesure</h3>
+      <p class="desc">Prototypes et outils IA branchés sur votre activité&nbsp;: assistant interne, automatisation, traitement de documents. Livré, connecté, utilisé.</p>
+      <ul class="plist">
+        <li>Prototype fonctionnel en 2 à 4 semaines</li>
+        <li>Connecté à vos outils existants</li>
+        <li>Transfert complet à vos équipes</li>
       </ul>
-      <p style="margin: 8px 0 0; padding-top: 18px; border-top: 1px solid #ECE9E4; font-size: 15px; color: #6E7276;">Projets à partir de <strong style="color: #2A2C2E;">6 000 € HT</strong></p>
+      <p class="tarif">Projets à partir de <strong>6 000 € HT</strong></p>
     </article>
 
-    <article class="offre-card" style="border: 1px solid #ECE9E4; border-radius: 20px; padding: 36px 32px; background: #FFFFFF; display: flex; flex-direction: column; gap: 18px; transition: border-color 0.15s;">
-      <span style="font-weight: 600; font-size: 13px; color: var(--accent); letter-spacing: 0.1em;">03</span>
-      <h3 style="margin: 0; font-weight: 800; font-size: 24px; letter-spacing: -0.01em; color: #2A2C2E;">Accompagnement</h3>
-      <p style="margin: 0; font-size: 16px; line-height: 1.6; color: #55585B; flex: 1; text-wrap: pretty;">Un pilotage dans la durée&nbsp;: veille, nouveaux cas d&rsquo;usage, arbitrages, suivi des résultats. Trois niveaux de présence, du point mensuel au jour par semaine.</p>
-      <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 8px;">
-        <li style="font-size: 15px; color: #2A2C2E; display: flex; gap: 10px; align-items: baseline;"><span style="color: var(--accent); font-weight: 800;">+</span>Suivi&nbsp;: point mensuel + support à distance</li>
-        <li style="font-size: 15px; color: #2A2C2E; display: flex; gap: 10px; align-items: baseline;"><span style="color: var(--accent); font-weight: 800;">+</span>Pilotage&nbsp;: + une demi-journée sur site / mois</li>
-        <li style="font-size: 15px; color: #2A2C2E; display: flex; gap: 10px; align-items: baseline;"><span style="color: var(--accent); font-weight: 800;">+</span>Temps partagé&nbsp;: un jour par semaine chez vous</li>
+    <article class="offre-card">
+      <span class="card-num">03</span>
+      <h3>Accompagnement</h3>
+      <p class="desc">Un pilotage dans la durée&nbsp;: veille, nouveaux cas d&rsquo;usage, arbitrages, suivi des résultats. Trois niveaux de présence, du point mensuel au jour par semaine.</p>
+      <ul class="plist">
+        <li>Suivi&nbsp;: point mensuel + support à distance</li>
+        <li>Pilotage&nbsp;: + une demi-journée sur site / mois</li>
+        <li>Temps partagé&nbsp;: un jour par semaine chez vous</li>
       </ul>
-      <p style="margin: 8px 0 0; padding-top: 18px; border-top: 1px solid #ECE9E4; font-size: 15px; color: #6E7276;">De <strong style="color: #2A2C2E;">500 à 3 000 € HT / mois</strong> · <a href="#temps-partage">voir les niveaux</a></p>
+      <p class="tarif">De <strong>500 à 3 000 € HT / mois</strong> · <a href="#temps-partage">voir les niveaux</a></p>
     </article>
 
   </div>
-  <p style="margin: 24px 0 0; font-size: 13px; color: #9B9E9F;">Tarifs HT. Chaque mission fait l&rsquo;objet d&rsquo;un devis précis à l&rsquo;issue du diagnostic.</p>
+  <p class="footnote">Tarifs HT. Chaque mission fait l&rsquo;objet d&rsquo;un devis précis à l&rsquo;issue du diagnostic.</p>
 </section>
 
 <!-- EXEMPLES -->
-<section id="exemples" style="max-width: 1140px; margin: 0 auto; padding: 100px 32px 40px;">
+<section id="exemples">
   <p class="eyebrow">Concrètement</p>
-  <h2 style="margin: 0 0 20px; font-weight: 800; font-size: clamp(32px, 4vw, 48px); letter-spacing: -0.02em; color: #2A2C2E; max-width: 22ch;">Exemples de ce que <span class="mark">je construis</span></h2>
-  <p style="margin: 0 0 48px; font-size: 17px; line-height: 1.6; color: #55585B; max-width: 60ch; text-wrap: pretty;">Des chantiers types, pour vous projeter. Le diagnostic établit l&rsquo;estimation précise pour votre cas.</p>
+  <h2 class="h2">Exemples de ce que <span class="mark">je construis</span></h2>
+  <p class="section-intro">Des chantiers types, pour vous projeter. Le diagnostic établit l&rsquo;estimation précise pour votre cas.</p>
   <div class="exemples-grid">
 
-    <div style="border: 1px solid #ECE9E4; border-radius: 16px; padding: 26px 24px; background: #FFFFFF; display: flex; flex-direction: column; gap: 10px;">
-      <h3 style="margin: 0; font-weight: 800; font-size: 18px; color: #2A2C2E;">Tri et pré-réponse des e-mails entrants</h3>
-      <p style="margin: 0; font-size: 15px; line-height: 1.55; color: #55585B; flex: 1;">Classement automatique, brouillons de réponse prêts à relire pour les demandes récurrentes.</p>
-      <p style="margin: 0; font-weight: 600; font-size: 13px; color: var(--accent);">À la clé&nbsp;: 3 à 5 h / semaine / personne</p>
+    <div class="exemple-card">
+      <h3>Tri et pré-réponse des e-mails entrants</h3>
+      <p>Classement automatique, brouillons de réponse prêts à relire pour les demandes récurrentes.</p>
+      <p class="gain">À la clé&nbsp;: 3 à 5 h / semaine / personne</p>
     </div>
 
-    <div style="border: 1px solid #ECE9E4; border-radius: 16px; padding: 26px 24px; background: #FFFFFF; display: flex; flex-direction: column; gap: 10px;">
-      <h3 style="margin: 0; font-weight: 800; font-size: 18px; color: #2A2C2E;">Réponse aux appels d&rsquo;offres</h3>
-      <p style="margin: 0; font-size: 15px; line-height: 1.55; color: #55585B; flex: 1;">Analyse du dossier de consultation, trame de réponse pré-remplie à partir de vos références.</p>
-      <p style="margin: 0; font-weight: 600; font-size: 13px; color: var(--accent);">À la clé&nbsp;: plusieurs jours par AO</p>
+    <div class="exemple-card">
+      <h3>Réponse aux appels d&rsquo;offres</h3>
+      <p>Analyse du dossier de consultation, trame de réponse pré-remplie à partir de vos références.</p>
+      <p class="gain">À la clé&nbsp;: plusieurs jours par AO</p>
     </div>
 
-    <div style="border: 1px solid #ECE9E4; border-radius: 16px; padding: 26px 24px; background: #FFFFFF; display: flex; flex-direction: column; gap: 10px;">
-      <h3 style="margin: 0; font-weight: 800; font-size: 18px; color: #2A2C2E;">Extraction de données de documents</h3>
-      <p style="margin: 0; font-size: 15px; line-height: 1.55; color: #55585B; flex: 1;">Factures, bons de commande, contrats&nbsp;: les données saisies automatiquement dans vos outils.</p>
-      <p style="margin: 0; font-weight: 600; font-size: 13px; color: var(--accent);">À la clé&nbsp;: fin de la double saisie</p>
+    <div class="exemple-card">
+      <h3>Extraction de données de documents</h3>
+      <p>Factures, bons de commande, contrats&nbsp;: les données saisies automatiquement dans vos outils.</p>
+      <p class="gain">À la clé&nbsp;: fin de la double saisie</p>
     </div>
 
-    <div style="border: 1px solid #ECE9E4; border-radius: 16px; padding: 26px 24px; background: #FFFFFF; display: flex; flex-direction: column; gap: 10px;">
-      <h3 style="margin: 0; font-weight: 800; font-size: 18px; color: #2A2C2E;">Assistant interne sur vos documents</h3>
-      <p style="margin: 0; font-size: 15px; line-height: 1.55; color: #55585B; flex: 1;">Procédures, contrats, historique client&nbsp;: vos équipes posent une question, l&rsquo;assistant répond avec la source.</p>
-      <p style="margin: 0; font-weight: 600; font-size: 13px; color: var(--accent);">À la clé&nbsp;: moins d&rsquo;interruptions entre collègues</p>
+    <div class="exemple-card">
+      <h3>Assistant interne sur vos documents</h3>
+      <p>Procédures, contrats, historique client&nbsp;: vos équipes posent une question, l&rsquo;assistant répond avec la source.</p>
+      <p class="gain">À la clé&nbsp;: moins d&rsquo;interruptions entre collègues</p>
     </div>
 
-    <div style="border: 1px solid #ECE9E4; border-radius: 16px; padding: 26px 24px; background: #FFFFFF; display: flex; flex-direction: column; gap: 10px;">
-      <h3 style="margin: 0; font-weight: 800; font-size: 18px; color: #2A2C2E;">Comptes-rendus et suivi d&rsquo;actions</h3>
-      <p style="margin: 0; font-size: 15px; line-height: 1.55; color: #55585B; flex: 1;">Réunions transcrites, comptes-rendus rédigés, actions extraites et affectées automatiquement.</p>
-      <p style="margin: 0; font-weight: 600; font-size: 13px; color: var(--accent);">À la clé&nbsp;: 1 à 2 h par réunion</p>
+    <div class="exemple-card">
+      <h3>Comptes-rendus et suivi d&rsquo;actions</h3>
+      <p>Réunions transcrites, comptes-rendus rédigés, actions extraites et affectées automatiquement.</p>
+      <p class="gain">À la clé&nbsp;: 1 à 2 h par réunion</p>
     </div>
 
-    <div style="border: 1px solid #ECE9E4; border-radius: 16px; padding: 26px 24px; background: #FFFFFF; display: flex; flex-direction: column; gap: 10px;">
-      <h3 style="margin: 0; font-weight: 800; font-size: 18px; color: #2A2C2E;">Veille et synthèse automatiques</h3>
-      <p style="margin: 0; font-size: 15px; line-height: 1.55; color: #55585B; flex: 1;">Concurrence, réglementaire, marchés publics&nbsp;: une synthèse hebdomadaire dans votre boîte mail.</p>
-      <p style="margin: 0; font-weight: 600; font-size: 13px; color: var(--accent);">À la clé&nbsp;: une veille qui existe enfin</p>
+    <div class="exemple-card">
+      <h3>Veille et synthèse automatiques</h3>
+      <p>Concurrence, réglementaire, marchés publics&nbsp;: une synthèse hebdomadaire dans votre boîte mail.</p>
+      <p class="gain">À la clé&nbsp;: une veille qui existe enfin</p>
     </div>
 
   </div>
 </section>
 
 <!-- TEMPS PARTAGE -->
-<section id="temps-partage" style="background: #2A2C2E; margin-top: 100px;">
-  <div style="max-width: 1140px; margin: 0 auto; padding: 100px 32px;">
+<section id="temps-partage">
+  <div class="wrap">
     <div class="step">
       <span class="step-num">3</span>
       <span class="step-label">Pour durer · l&rsquo;offre phare</span>
-      <span class="step-count" style="color: #6E7276;">· 3/3</span>
+      <span class="step-count dim">· 3/3</span>
     </div>
 
     <div class="tp-header">
-      <div style="max-width: 62ch; display: flex; flex-direction: column; gap: 20px;">
-        <h2 style="margin: 0 0 12px; font-weight: 800; font-size: clamp(32px, 4vw, 52px); letter-spacing: -0.02em; color: #FBFAF8; max-width: 18ch; text-wrap: balance;">Un responsable IA, <span class="mark">un jour par semaine</span></h2>
-        <p style="margin: 0; font-size: 17px; line-height: 1.65; color: #C9CBCC; text-wrap: pretty;">Comme un DAF ou un DSI à temps partagé&nbsp;: je prends le rôle de responsable IA de votre PME, un jour par semaine, dans vos locaux.</p>
-        <p style="margin: 0; font-size: 17px; line-height: 1.65; color: #C9CBCC; text-wrap: pretty;">La différence avec une mission ponctuelle&nbsp;? La présence. Je connais vos équipes, vos dossiers en cours, votre stratégie et votre rythme. Les outils se déploient là où ils servent vraiment, l&rsquo;adoption se fait dans la durée, et vous avez un interlocuteur unique qui arbitre&nbsp;: quoi automatiser, quoi former, quoi laisser tomber.</p>
-        <p style="margin: 0; font-size: 17px; line-height: 1.65; color: #C9CBCC; text-wrap: pretty;">Vos équipes deviennent autonomes sur les outils. La stratégie, la veille et les nouveaux chantiers, c&rsquo;est mon rôle, chaque semaine.</p>
+      <div class="tp-copy">
+        <h2 class="h2">Un responsable IA, <span class="mark">un jour par semaine</span></h2>
+        <p>Comme un DAF ou un DSI à temps partagé&nbsp;: je prends le rôle de responsable IA de votre PME, un jour par semaine, dans vos locaux.</p>
+        <p>La différence avec une mission ponctuelle&nbsp;? La présence. Je connais vos équipes, vos dossiers en cours, votre stratégie et votre rythme. Les outils se déploient là où ils servent vraiment, l&rsquo;adoption se fait dans la durée, et vous avez un interlocuteur unique qui arbitre&nbsp;: quoi automatiser, quoi former, quoi laisser tomber.</p>
+        <p>Vos équipes deviennent autonomes sur les outils. La stratégie, la veille et les nouveaux chantiers, c&rsquo;est mon rôle, chaque semaine.</p>
       </div>
-      <div class="tp-price" style="border: 2px solid var(--accent); border-radius: 20px; padding: 36px 32px; background: #333638; text-align: left; max-width: 380px; align-self: flex-start; display: flex; flex-direction: column; gap: 16px;">
-        <p style="margin: 0; font-weight: 600; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: #9B9E9F;">Responsable IA à temps partagé</p>
-        <p style="margin: 0; font-weight: 900; font-size: 44px; letter-spacing: -0.02em; color: #FBFAF8;">3 000&nbsp;€ <span style="font-size: 17px; font-weight: 500; color: #9B9E9F;">HT / mois</span></p>
-        <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 8px;">
-          <li style="font-size: 15px; color: #FBFAF8; display: flex; gap: 10px; align-items: baseline;"><span style="color: var(--accent); font-weight: 800;">+</span>1 jour par semaine dans vos locaux</li>
-          <li style="font-size: 15px; color: #FBFAF8; display: flex; gap: 10px; align-items: baseline;"><span style="color: var(--accent); font-weight: 800;">+</span>Stratégie, déploiement, veille, arbitrages</li>
-          <li style="font-size: 15px; color: #FBFAF8; display: flex; gap: 10px; align-items: baseline;"><span style="color: var(--accent); font-weight: 800;">+</span>45 jours de présence par an, congés et fériés déduits, lissés en 12 mensualités</li>
-          <li style="font-size: 15px; color: #FBFAF8; display: flex; gap: 10px; align-items: baseline;"><span style="color: var(--accent); font-weight: 800;">+</span>Soit 800&nbsp;€ HT le jour de présence</li>
-          <li style="font-size: 15px; color: #FBFAF8; display: flex; gap: 10px; align-items: baseline;"><span style="color: var(--accent); font-weight: 800;">+</span>Engagement 6 mois</li>
+      <div class="tp-price">
+        <p class="box-kicker">Responsable IA à temps partagé</p>
+        <p class="price">3 000&nbsp;€ <span>HT / mois</span></p>
+        <ul class="plist">
+          <li>1 jour par semaine dans vos locaux</li>
+          <li>Stratégie, déploiement, veille, arbitrages</li>
+          <li>45 jours de présence par an, congés et fériés déduits, lissés en 12 mensualités</li>
+          <li>Soit 800&nbsp;€ HT le jour de présence</li>
+          <li>Engagement 6 mois</li>
         </ul>
-        <a class="btn-primary" href="#contact" style="background: var(--btn-bg); color: var(--btn-fg); border: 2px solid var(--accent); padding: 14px 28px; border-radius: 999px; font-weight: 600; font-size: 16px; text-align: center; transition: transform 0.15s; margin-top: 6px;">Discuter d&rsquo;une place</a>
+        <a class="btn-primary btn-md card-cta" href="#contact">Discuter d&rsquo;une place</a>
       </div>
     </div>
 
-    <div style="margin-top: 40px; max-width: 420px;">
-      <div role="img" aria-label="1 place prise sur 3, 2 disponibles" style="display: flex; gap: 6px; margin-bottom: 10px;">
-        <span style="height: 10px; flex: 1; border-radius: 999px; background: #6E7276;"></span>
-        <span style="height: 10px; flex: 1; border-radius: 999px; background: var(--accent);"></span>
-        <span style="height: 10px; flex: 1; border-radius: 999px; background: var(--accent);"></span>
+    <div class="gauge">
+      <div class="gauge-bars" role="img" aria-label="1 place prise sur 3, 2 disponibles">
+        <span class="taken"></span>
+        <span></span>
+        <span></span>
       </div>
-      <p style="margin: 0; font-size: 14px; color: #C9CBCC;"><strong style="color: #FBFAF8;">3 entreprises maximum</strong> · 1 place prise, <strong style="color: var(--accent);">2 disponibles</strong></p>
+      <p><strong class="fg">3 entreprises maximum</strong> · 1 place prise, <strong class="acc">2 disponibles</strong></p>
     </div>
 
-    <div style="margin-top: 72px; border-top: 1px solid #45484A; padding-top: 48px;">
-      <h3 style="margin: 0 0 8px; font-weight: 800; font-size: 22px; letter-spacing: -0.01em; color: #FBFAF8;">Autres fonctionnements possibles</h3>
-      <p style="margin: 0 0 24px; font-size: 15px; line-height: 1.5; color: #9B9E9F;">Pas besoin d&rsquo;un jour par semaine&nbsp;? Deux formules plus légères, <strong style="color: #C9CBCC;">en alternative</strong> au temps partagé&nbsp;:</p>
+    <div class="tp-alt">
+      <h3>Autres fonctionnements possibles</h3>
+      <p class="intro">Pas besoin d&rsquo;un jour par semaine&nbsp;? Deux formules plus légères, <strong>en alternative</strong> au temps partagé&nbsp;:</p>
       <div class="paliers-grid">
-        <div style="border: 1px solid #45484A; border-radius: 16px; padding: 22px 24px;">
-          <p style="margin: 0 0 6px; font-weight: 800; font-size: 16px; color: #FBFAF8;">Suivi <span style="font-weight: 500; color: #9B9E9F;">· 500&nbsp;€ HT / mois</span></p>
-          <p style="margin: 0; font-size: 14px; line-height: 1.5; color: #C9CBCC;">Point mensuel avec la direction + support à distance entre les sessions.</p>
+        <div class="palier">
+          <p class="t">Suivi <span>· 500&nbsp;€ HT / mois</span></p>
+          <p class="d">Point mensuel avec la direction + support à distance entre les sessions.</p>
         </div>
-        <div style="border: 1px solid #45484A; border-radius: 16px; padding: 22px 24px;">
-          <p style="margin: 0 0 6px; font-weight: 800; font-size: 16px; color: #FBFAF8;">Pilotage <span style="font-weight: 500; color: #9B9E9F;">· 1 500&nbsp;€ HT / mois</span></p>
-          <p style="margin: 0; font-size: 14px; line-height: 1.5; color: #C9CBCC;">Le contenu du Suivi + une demi-journée sur site chaque mois, au plus près des équipes.</p>
+        <div class="palier">
+          <p class="t">Pilotage <span>· 1 500&nbsp;€ HT / mois</span></p>
+          <p class="d">Le contenu du Suivi + une demi-journée sur site chaque mois, au plus près des équipes.</p>
         </div>
       </div>
     </div>
@@ -475,59 +256,59 @@
 </section>
 
 <!-- METHODE -->
-<section id="methode" style="max-width: 1140px; margin: 0 auto; padding: 100px 32px;">
+<section id="methode">
   <p class="eyebrow">Méthode</p>
-  <h2 style="margin: 0 0 20px; font-weight: 800; font-size: clamp(32px, 4vw, 48px); letter-spacing: -0.02em; color: #2A2C2E; max-width: 20ch;">Du diagnostic au pilotage, en <span class="mark">quatre temps</span></h2>
-  <p style="margin: 0 0 56px; font-size: 17px; line-height: 1.6; color: #55585B; max-width: 60ch; text-wrap: pretty;">Le fil rouge&nbsp;: on mesure le temps gagné au départ, à chaque étape, et à l&rsquo;arrivée.</p>
+  <h2 class="h2">Du diagnostic au pilotage, en <span class="mark">quatre temps</span></h2>
+  <p class="section-intro">Le fil rouge&nbsp;: on mesure le temps gagné au départ, à chaque étape, et à l&rsquo;arrivée.</p>
   <div class="etapes-grid">
 
-    <div style="display: flex; flex-direction: column; gap: 14px; border-top: 3px solid var(--accent); padding-top: 22px;">
-      <span style="font-weight: 600; font-size: 13px; color: #6E7276;">ÉTAPE 01</span>
-      <h3 style="margin: 0; font-weight: 800; font-size: 20px; color: #2A2C2E;">Diagnostic</h3>
-      <p style="margin: 0; font-size: 15px; line-height: 1.6; color: #55585B; text-wrap: pretty;">4 heures pour identifier où l&rsquo;IA fait réellement gagner du temps dans vos processus, et où elle n&rsquo;apporte rien. Cas d&rsquo;usage priorisés, feuille de route.</p>
+    <div class="etape">
+      <span class="etape-num">ÉTAPE 01</span>
+      <h3>Diagnostic</h3>
+      <p>4 heures pour identifier où l&rsquo;IA fait réellement gagner du temps dans vos processus, et où elle n&rsquo;apporte rien. Cas d&rsquo;usage priorisés, feuille de route.</p>
     </div>
 
-    <div style="display: flex; flex-direction: column; gap: 14px; border-top: 3px solid var(--accent); padding-top: 22px;">
-      <span style="font-weight: 600; font-size: 13px; color: #6E7276;">ÉTAPE 02</span>
-      <h3 style="margin: 0; font-weight: 800; font-size: 20px; color: #2A2C2E;">Pilote</h3>
-      <p style="margin: 0; font-size: 15px; line-height: 1.6; color: #55585B; text-wrap: pretty;">Une formation ou un prototype sur un cas concret, à petit périmètre. On prouve la valeur avant d&rsquo;investir plus.</p>
+    <div class="etape">
+      <span class="etape-num">ÉTAPE 02</span>
+      <h3>Pilote</h3>
+      <p>Une formation ou un prototype sur un cas concret, à petit périmètre. On prouve la valeur avant d&rsquo;investir plus.</p>
     </div>
 
-    <div style="display: flex; flex-direction: column; gap: 14px; border-top: 3px solid var(--accent); padding-top: 22px;">
-      <span style="font-weight: 600; font-size: 13px; color: #6E7276;">ÉTAPE 03</span>
-      <h3 style="margin: 0; font-weight: 800; font-size: 20px; color: #2A2C2E;">Déploiement</h3>
-      <p style="margin: 0; font-size: 15px; line-height: 1.6; color: #55585B; text-wrap: pretty;">On étend ce qui marche&nbsp;: formation des équipes, industrialisation de l&rsquo;outil, ancrage dans le quotidien.</p>
+    <div class="etape">
+      <span class="etape-num">ÉTAPE 03</span>
+      <h3>Déploiement</h3>
+      <p>On étend ce qui marche&nbsp;: formation des équipes, industrialisation de l&rsquo;outil, ancrage dans le quotidien.</p>
     </div>
 
-    <div style="display: flex; flex-direction: column; gap: 14px; border-top: 3px solid var(--accent); padding-top: 22px;">
-      <span style="font-weight: 600; font-size: 13px; color: #6E7276;">ÉTAPE 04</span>
-      <h3 style="margin: 0; font-weight: 800; font-size: 20px; color: #2A2C2E;">Vitesse de croisière</h3>
-      <p style="margin: 0; font-size: 15px; line-height: 1.6; color: #55585B; text-wrap: pretty;">Vos équipes maîtrisent les outils au quotidien. On pilote la suite ensemble&nbsp;: veille, nouveaux cas d&rsquo;usage, arbitrages, et la mesure des résultats.</p>
+    <div class="etape">
+      <span class="etape-num">ÉTAPE 04</span>
+      <h3>Vitesse de croisière</h3>
+      <p>Vos équipes maîtrisent les outils au quotidien. On pilote la suite ensemble&nbsp;: veille, nouveaux cas d&rsquo;usage, arbitrages, et la mesure des résultats.</p>
     </div>
 
   </div>
 </section>
 
 <!-- A PROPOS -->
-<section id="apropos" style="background: #FFFFFF; border-top: 1px solid #ECE9E4; border-bottom: 1px solid #ECE9E4;">
-  <div class="apropos-grid" style="max-width: 1140px; margin: 0 auto; padding: 100px 32px;">
-    <div style="width: 320px; height: 380px; border-radius: 24px; overflow: hidden;">
-      <img src="assets/portrait.jpeg" alt="Portrait de Mathieu Langlois" width="320" height="380" loading="lazy" style="width: 100%; height: 100%; object-fit: cover;">
+<section id="apropos">
+  <div class="apropos-grid">
+    <div class="portrait">
+      <img src="assets/portrait.jpeg" alt="Portrait de Mathieu Langlois" width="320" height="380" loading="lazy">
     </div>
-    <div style="display: flex; flex-direction: column; gap: 20px;">
-      <p class="eyebrow" style="margin: 0;">À propos</p>
-      <h2 style="margin: 0; font-weight: 800; font-size: clamp(30px, 3.5vw, 42px); letter-spacing: -0.02em; color: #2A2C2E;">Formateur le matin, <span class="mark">builder l&rsquo;après-midi</span></h2>
-      <p style="margin: 0; font-size: 17px; line-height: 1.65; color: #55585B; text-wrap: pretty;">Je suis Mathieu Langlois. Je travaille avec des dirigeants de PME qui veulent des résultats concrets avec l&rsquo;IA, pas des promesses.</p>
-      <p style="margin: 0; font-size: 17px; line-height: 1.65; color: #55585B; text-wrap: pretty;">Ma particularité&nbsp;: je forme <em>et</em> je construis. Ce que j&rsquo;enseigne le matin, je le mets en production l&rsquo;après-midi chez d&rsquo;autres clients. C&rsquo;est la garantie que mes formations reposent sur ce qui fonctionne réellement, pas sur ce qui fait bien dans une conférence.</p>
-      <a href="#contact" style="align-self: flex-start; font-weight: 600; font-size: 16px; border-bottom: 2px solid var(--accent); padding-bottom: 2px;">Parlons de votre situation →</a>
+    <div class="apropos-txt">
+      <p class="eyebrow">À propos</p>
+      <h2 class="h2">Formateur le matin, <span class="mark">builder l&rsquo;après-midi</span></h2>
+      <p class="bio">Je suis Mathieu Langlois. Je travaille avec des dirigeants de PME qui veulent des résultats concrets avec l&rsquo;IA, pas des promesses.</p>
+      <p class="bio">Ma particularité&nbsp;: je forme <em>et</em> je construis. Ce que j&rsquo;enseigne le matin, je le mets en production l&rsquo;après-midi chez d&rsquo;autres clients. C&rsquo;est la garantie que mes formations reposent sur ce qui fonctionne réellement, pas sur ce qui fait bien dans une conférence.</p>
+      <a class="arrow-link" href="#contact">Parlons de votre situation →</a>
     </div>
   </div>
 </section>
 
 <!-- FAQ -->
-<section id="faq" style="max-width: 840px; margin: 0 auto; padding: 100px 32px 60px;">
+<section id="faq">
   <p class="eyebrow">Questions fréquentes</p>
-  <h2 style="margin: 0 0 40px; font-weight: 800; font-size: clamp(30px, 3.5vw, 42px); letter-spacing: -0.02em; color: #2A2C2E;">Ce qu&rsquo;on me demande <span class="mark">souvent</span></h2>
+  <h2 class="h2">Ce qu&rsquo;on me demande <span class="mark">souvent</span></h2>
 
   <details class="faq-item">
     <summary>Et la confidentialité de nos données&nbsp;?</summary>
@@ -556,27 +337,27 @@
 </section>
 
 <!-- CONTACT -->
-<section id="contact" style="max-width: 1140px; margin: 0 auto; padding: 60px 32px 100px; text-align: center;">
-  <h2 style="margin: 0 auto 24px; font-weight: 900; font-size: clamp(36px, 5vw, 64px); letter-spacing: -0.03em; color: #2A2C2E; max-width: 18ch; text-wrap: balance;"><span class="mark">30 minutes</span> pour parler de votre cas</h2>
-  <p style="margin: 0 auto 44px; font-size: 19px; line-height: 1.6; color: #55585B; max-width: 48ch; text-wrap: pretty;">Un appel gratuit, sans engagement. Vous repartez au minimum avec deux ou trois pistes concrètes pour votre entreprise.</p>
-  <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
-    <a class="btn-primary" href="https://cal.com/" target="_blank" rel="noopener" style="background: var(--btn-bg); color: var(--btn-fg); border: 2px solid var(--accent); padding: 18px 36px; border-radius: 999px; font-weight: 600; font-size: 18px; transition: transform 0.15s;">Réserver un créneau</a>
-    <a class="btn-secondary" href="mailto:contact@mlanglois.fr" style="color: #2A2C2E; padding: 18px 32px; border: 2px solid #DDD9D2; border-radius: 999px; font-weight: 600; font-size: 18px; transition: border-color 0.15s;">contact@mlanglois.fr</a>
+<section id="contact">
+  <h2 class="h2"><span class="mark">30 minutes</span> pour parler de votre cas</h2>
+  <p class="section-intro">Un appel gratuit, sans engagement. Vous repartez au minimum avec deux ou trois pistes concrètes pour votre entreprise.</p>
+  <div class="contact-ctas">
+    <a class="btn-primary btn-xl" href="https://cal.com/" target="_blank" rel="noopener">Réserver un créneau</a>
+    <a class="btn-secondary btn-xl" href="mailto:contact@mlanglois.fr">contact@mlanglois.fr</a>
   </div>
 </section>
 
 <!-- FOOTER -->
-<footer style="border-top: 1px solid #ECE9E4;">
-  <div style="max-width: 1140px; margin: 0 auto; padding: 32px; display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap;">
-    <div style="display: flex; align-items: center; gap: 10px;">
-      <span style="background: var(--accent); color: #FBFAF8; font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 15px; line-height: 1; padding: 5px 8px 7px; border-radius: 8px;">mlgs</span>
-      <span style="font-size: 14px; color: #6E7276;">© 2026 Mathieu Langlois · Formation &amp; build IA</span>
+<footer>
+  <div class="footer-inner">
+    <div class="footer-left">
+      <span class="logo-badge-sm">mlgs</span>
+      <span class="copy">© 2026 Mathieu Langlois · Formation &amp; build IA</span>
     </div>
-    <div style="display: flex; gap: 24px; font-size: 14px; flex-wrap: wrap;">
-      <a href="https://www.linkedin.com/in/mlgs45/" target="_blank" rel="noopener" style="color: #6E7276;">LinkedIn</a>
-      <a href="mailto:contact@mlanglois.fr" style="color: #6E7276;">Contact</a>
-      <a href="mentions-legales.html" style="color: #6E7276;">Mentions légales</a>
-      <a href="#haut" style="color: #6E7276;">Haut de page</a>
+    <div class="footer-links">
+      <a href="https://www.linkedin.com/in/mlgs45/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="mailto:contact@mlanglois.fr">Contact</a>
+      <a href="mentions-legales.html">Mentions légales</a>
+      <a href="#haut">Haut de page</a>
     </div>
   </div>
 </footer>
