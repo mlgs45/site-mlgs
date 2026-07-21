@@ -343,7 +343,6 @@ a:hover { color: #C93D1D; }
 /* ---------- Exemples ---------- */
 
 #exemples { max-width: 1140px; margin: 0 auto; padding: 100px 32px 40px; }
-#exemples .h2 { max-width: 22ch; }
 #exemples .section-intro { margin-bottom: 48px; }
 .exemples-note {
   margin: 24px 0 0;
