@@ -137,17 +137,17 @@
   }
   .offres-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
     gap: 24px;
   }
   .exemples-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
     gap: 20px;
   }
   .etapes-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(230px, 100%), 1fr));
     gap: 40px;
   }
   .apropos-grid {
@@ -177,7 +177,7 @@
   .tp-price { text-align: right; }
   .paliers-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr));
     gap: 20px;
   }
   .faq-item {
@@ -213,14 +213,30 @@
   }
 
   @media (max-width: 720px) {
-    nav .nav-links { display: none; }
-    .apropos-grid { grid-template-columns: 1fr; }
-    .apropos-grid > div:first-child { width: 100%; height: 320px; }
-    .strip-grid { grid-template-columns: 1fr; }
-    .diagnostic-grid { grid-template-columns: 1fr; }
-    .tp-price { text-align: left; }
+    nav .nav-link { display: none; }
+    nav > div { padding: 12px 20px !important; }
+    nav a[href="#haut"] > span:last-child { display: none; }
+    nav .btn-primary { padding: 8px 16px !important; font-size: 14px; }
+    body { overflow-x: hidden; }
     .hero-grid { grid-template-columns: 1fr; }
     .hero-photo { display: none; }
+    .hero-text { padding: 64px 0 !important; }
+    .strip-grid { grid-template-columns: 1fr; gap: 18px; }
+    .diagnostic-grid { grid-template-columns: 1fr; gap: 32px; }
+    .apropos-grid {
+      grid-template-columns: 1fr;
+      gap: 40px;
+      padding-top: 64px !important;
+      padding-bottom: 64px !important;
+    }
+    .apropos-grid > div:first-child { width: 100%; height: 320px; }
+    .tp-price { text-align: left; max-width: none !important; }
+    .etapes-grid { gap: 28px; }
+    #diagnostic, #exemples, #methode, #faq { padding-top: 64px !important; }
+    #temps-partage { margin-top: 48px !important; }
+    #diagnostic, #methode { padding-bottom: 64px !important; }
+    #temps-partage > div { padding-top: 64px !important; padding-bottom: 64px !important; }
+    #contact { padding-bottom: 64px !important; }
   }
 </style>
 </head>
@@ -250,7 +266,7 @@
 <!-- HERO -->
 <header id="haut" style="max-width: 1140px; margin: 0 auto; padding: 0 32px;">
   <div class="hero-grid">
-  <div style="padding: 110px 0 90px;">
+  <div class="hero-text" style="padding: 110px 0 90px;">
   <p style="margin: 0 0 24px; font-weight: 600; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: #6E7276;">Formateur &amp; builder IA</p>
   <h1 style="margin: 0 0 28px; font-weight: 900; font-size: clamp(44px, 6.5vw, 84px); line-height: 1.02; letter-spacing: -0.03em; color: #2A2C2E; max-width: 15ch; text-wrap: balance;">Mettez l&rsquo;IA au travail. <span style="color: var(--accent);">Vraiment.</span></h1>
   <p style="margin: 0 0 40px; font-size: 20px; line-height: 1.55; color: #55585B; max-width: 56ch; text-wrap: pretty;">Je forme vos équipes, je construis vos outils et je pilote le déploiement de l&rsquo;IA dans votre PME, chaque semaine, sur de vrais dossiers. Sans jargon, sans slides creux.</p>
